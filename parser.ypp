@@ -1,0 +1,217 @@
+%define parse.trace
+%define parse.error verbose
+
+%{
+    #include <string>
+
+    extern FILE *yyin;
+    extern int yylex(void);
+
+    void yyerror(const char *msg) {
+        fprintf(stderr, "%s\n", msg);
+    }
+%}
+
+%union {
+    int             f_liter_int;
+    char            f_liter_char;
+    float           f_liter_float;
+    bool            f_liter_bool;
+    std::string*    f_liter_str;
+    std::string*    f_id;
+}
+
+%printer {
+    fprintf(yyo, "%d", $$);
+} <f_liter_int>
+
+%printer {
+    fprintf(yyo, "\'%c\'", $$);
+} <f_liter_char>
+
+%printer {
+    fprintf(yyo, "%f", $$);
+} <f_liter_float>
+
+%printer {
+    fprintf(yyo, "%d", $$);
+} <f_liter_bool>
+
+%printer {
+    fprintf(yyo, "\"%s\"", $$->c_str());
+} <f_liter_str>
+
+%printer {
+    fprintf(yyo, "\"%s\"", $$->c_str());
+} <f_id>
+
+// ---------------- TOKENS ----------------
+// KEYWORDS & TYPES
+%token IF ELSE WHILE CONTINUE BREAK RETURN STRUCT CLASS
+%token INT FLOAT CHAR BOOL VOID
+
+// LITERALS
+%token<f_liter_int> LIT_INT
+%token<f_liter_float> LIT_FLOAT
+%token<f_liter_bool> LIT_BOOL
+%token<f_liter_char> LIT_CHAR
+%token<f_liter_str> LIT_STR
+%token<f_id> ID
+
+// OPERATORS
+%right '='
+%left OR
+%left AND
+%left '<' '>' LESS_EQUAL GREAT_EQUAL EQUAL NOTEQUAL
+%left '+' '-'
+%left '*' '/' '%'
+%right UMINUS NOT
+%left '[' '.'
+%nonassoc '('
+
+%start program
+
+%%
+
+program:
+    global_decl_list
+;
+
+global_decl_list:
+    global_decl
+  | global_decl_list global_decl
+;
+
+global_decl:
+    type ID ';'
+  | type ID '=' expr ';'
+  | type ID '(' param_comma_list_opt ')' '{' stmnt_list_opt '}'
+  | VOID ID '(' param_comma_list_opt ')' '{' stmnt_list_opt '}'
+  | STRUCT ID '{' struct_fields_list_opt '}'
+  | CLASS ID '{' class_comps_list_opt '}'
+;
+
+type:
+    INT
+  | FLOAT
+  | CHAR
+  | BOOL
+  | ID
+  | type '[' ']'
+  | type '[' LIT_INT ']'
+;
+
+param_comma_list_opt:
+    /* empty */
+  | param_comma_list
+;
+
+param_comma_list:
+    type ID
+  | param_comma_list ',' type ID
+;
+
+struct_fields_list_opt:
+    /* empty */
+  | struct_fields_list
+;
+
+struct_fields_list:
+    type ID ';'
+  | struct_fields_list type ID ';'
+;
+
+class_comps_list_opt:
+    /* empty */
+  | class_comps_list
+;
+
+class_comps_list:
+    type ID ';'
+  | type ID '(' param_comma_list_opt ')' '{' stmnt_list_opt '}'
+  | VOID ID '(' param_comma_list_opt ')' '{' stmnt_list_opt '}'
+  | class_comps_list type ID ';'
+  | class_comps_list type ID '(' param_comma_list_opt ')' '{' stmnt_list_opt '}'
+  | class_comps_list VOID ID '(' param_comma_list_opt ')' '{' stmnt_list_opt '}'
+;
+
+stmnt_list_opt:
+    /* empty */
+  | stmnt_list
+;
+
+stmnt_list:
+    stmnt
+  | stmnt_list stmnt
+;
+
+stmnt:
+    type ID ';'
+  | type ID '=' expr ';'
+  | IF '(' expr ')' stmnt
+  | IF '(' expr ')' stmnt ELSE stmnt
+  | WHILE '(' expr ')' stmnt
+  | BREAK ';'
+  | CONTINUE ';'
+  | RETURN ';'
+  | RETURN expr ';'
+  | expr ';'
+  | '{' stmnt_list_opt '}'
+;
+
+expr:
+    LIT_INT
+  | LIT_FLOAT
+  | LIT_BOOL
+  | LIT_CHAR
+  | LIT_STR
+  | ID
+  | ID '(' expr_comma_list_opt ')'
+  | expr '=' expr
+  | expr '+' expr
+  | expr '-' expr
+  | expr '*' expr
+  | expr '/' expr
+  | expr '%' expr
+  | expr AND expr
+  | expr OR expr
+  | expr EQUAL expr
+  | expr NOTEQUAL expr
+  | expr '<' expr
+  | expr '>' expr
+  | expr LESS_EQUAL expr
+  | expr GREAT_EQUAL expr
+  | '-' expr %prec UMINUS
+  | '!' expr %prec NOT
+  | expr '.' ID
+  | expr '.' ID '(' expr_comma_list_opt ')'
+  | '(' expr ')'
+;
+
+expr_comma_list_opt:
+    /* empty */
+  | expr_comma_list
+;
+
+expr_comma_list:
+    expr
+  | expr_comma_list_opt ',' expr
+;
+
+%%
+
+int main(int argc, char** argv) {
+    if (argc != 2) {
+        printf("Usage: program <file path>.\n");
+    }
+
+    yydebug = 1;
+
+    yyin = fopen(argv[1], "r");
+    if (!yyin) {
+        printf("Failed to read file at path: \"%s\"\n", argv[1]);
+        return -1;
+    }
+    yyparse();
+    fclose(yyin);
+}

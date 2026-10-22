@@ -1,0 +1,501 @@
+Starting parse
+Entering state 0
+Stack now 0
+Reading a token
+Next token is token STRUCT ()
+Shifting token STRUCT ()
+Entering state 1
+Stack now 0 1
+Reading a token
+Next token is token ID ("A")
+Shifting token ID ("A")
+Entering state 13
+Stack now 0 1 13
+Reading a token
+Next token is token '{' ()
+Shifting token '{' ()
+Entering state 20
+Stack now 0 1 13 20
+Reading a token
+Next token is token INT ()
+Shifting token INT ()
+Entering state 3
+Stack now 0 1 13 20 3
+Reducing stack by rule 10 (line 95):
+   $1 = token INT ()
+-> $$ = nterm type ()
+Entering state 28
+Stack now 0 1 13 20 28
+Reading a token
+Next token is token ID ("a")
+Shifting token ID ("a")
+Entering state 50
+Stack now 0 1 13 20 28 50
+Reading a token
+Next token is token ';' ()
+Shifting token ';' ()
+Entering state 82
+Stack now 0 1 13 20 28 50 82
+Reducing stack by rule 23 (line 120):
+   $1 = nterm type ()
+   $2 = token ID ("a")
+   $3 = token ';' ()
+-> $$ = nterm struct_fields_list ()
+Entering state 30
+Stack now 0 1 13 20 30
+Reading a token
+Next token is token FLOAT ()
+Shifting token FLOAT ()
+Entering state 4
+Stack now 0 1 13 20 30 4
+Reducing stack by rule 11 (line 96):
+   $1 = token FLOAT ()
+-> $$ = nterm type ()
+Entering state 52
+Stack now 0 1 13 20 30 52
+Reading a token
+Next token is token ID ("b")
+Shifting token ID ("b")
+Entering state 83
+Stack now 0 1 13 20 30 52 83
+Reading a token
+Next token is token ';' ()
+Shifting token ';' ()
+Entering state 111
+Stack now 0 1 13 20 30 52 83 111
+Reducing stack by rule 24 (line 121):
+   $1 = nterm struct_fields_list ()
+   $2 = nterm type ()
+   $3 = token ID ("b")
+   $4 = token ';' ()
+-> $$ = nterm struct_fields_list ()
+Entering state 30
+Stack now 0 1 13 20 30
+Reading a token
+Next token is token '}' ()
+Reducing stack by rule 22 (line 116):
+   $1 = nterm struct_fields_list ()
+-> $$ = nterm struct_fields_list_opt ()
+Entering state 29
+Stack now 0 1 13 20 29
+Next token is token '}' ()
+Shifting token '}' ()
+Entering state 51
+Stack now 0 1 13 20 29 51
+Reducing stack by rule 8 (line 90):
+   $1 = token STRUCT ()
+   $2 = token ID ("A")
+   $3 = token '{' ()
+   $4 = nterm struct_fields_list_opt ()
+   $5 = token '}' ()
+-> $$ = nterm global_decl ()
+Entering state 11
+Stack now 0 11
+Reducing stack by rule 2 (line 81):
+   $1 = nterm global_decl ()
+-> $$ = nterm global_decl_list ()
+Entering state 10
+Stack now 0 10
+Reading a token
+Next token is token CLASS ()
+Shifting token CLASS ()
+Entering state 2
+Stack now 0 10 2
+Reading a token
+Next token is token ID ("B")
+Shifting token ID ("B")
+Entering state 14
+Stack now 0 10 2 14
+Reading a token
+Next token is token '{' ()
+Shifting token '{' ()
+Entering state 21
+Stack now 0 10 2 14 21
+Reading a token
+Next token is token INT ()
+Shifting token INT ()
+Entering state 3
+Stack now 0 10 2 14 21 3
+Reducing stack by rule 10 (line 95):
+   $1 = token INT ()
+-> $$ = nterm type ()
+Entering state 32
+Stack now 0 10 2 14 21 32
+Reading a token
+Next token is token ID ("field")
+Shifting token ID ("field")
+Entering state 54
+Stack now 0 10 2 14 21 32 54
+Reading a token
+Next token is token ';' ()
+Shifting token ';' ()
+Entering state 86
+Stack now 0 10 2 14 21 32 54 86
+Reducing stack by rule 27 (line 130):
+   $1 = nterm type ()
+   $2 = token ID ("field")
+   $3 = token ';' ()
+-> $$ = nterm class_comps_list ()
+Entering state 34
+Stack now 0 10 2 14 21 34
+Reading a token
+Next token is token VOID ()
+Shifting token VOID ()
+Entering state 56
+Stack now 0 10 2 14 21 34 56
+Reading a token
+Next token is token ID ("method")
+Shifting token ID ("method")
+Entering state 87
+Stack now 0 10 2 14 21 34 56 87
+Reading a token
+Next token is token '(' ()
+Shifting token '(' ()
+Entering state 114
+Stack now 0 10 2 14 21 34 56 87 114
+Reading a token
+Next token is token INT ()
+Shifting token INT ()
+Entering state 3
+Stack now 0 10 2 14 21 34 56 87 114 3
+Reducing stack by rule 10 (line 95):
+   $1 = token INT ()
+-> $$ = nterm type ()
+Entering state 35
+Stack now 0 10 2 14 21 34 56 87 114 35
+Reading a token
+Next token is token ID ("p1")
+Shifting token ID ("p1")
+Entering state 58
+Stack now 0 10 2 14 21 34 56 87 114 35 58
+Reducing stack by rule 19 (line 110):
+   $1 = nterm type ()
+   $2 = token ID ("p1")
+-> $$ = nterm param_comma_list ()
+Entering state 37
+Stack now 0 10 2 14 21 34 56 87 114 37
+Reading a token
+Next token is token ',' ()
+Shifting token ',' ()
+Entering state 60
+Stack now 0 10 2 14 21 34 56 87 114 37 60
+Reading a token
+Next token is token FLOAT ()
+Shifting token FLOAT ()
+Entering state 4
+Stack now 0 10 2 14 21 34 56 87 114 37 60 4
+Reducing stack by rule 11 (line 96):
+   $1 = token FLOAT ()
+-> $$ = nterm type ()
+Entering state 90
+Stack now 0 10 2 14 21 34 56 87 114 37 60 90
+Reading a token
+Next token is token ID ("p2")
+Shifting token ID ("p2")
+Entering state 129
+Stack now 0 10 2 14 21 34 56 87 114 37 60 90 129
+Reducing stack by rule 20 (line 111):
+   $1 = nterm param_comma_list ()
+   $2 = token ',' ()
+   $3 = nterm type ()
+   $4 = token ID ("p2")
+-> $$ = nterm param_comma_list ()
+Entering state 37
+Stack now 0 10 2 14 21 34 56 87 114 37
+Reading a token
+Next token is token ')' ()
+Reducing stack by rule 18 (line 106):
+   $1 = nterm param_comma_list ()
+-> $$ = nterm param_comma_list_opt ()
+Entering state 136
+Stack now 0 10 2 14 21 34 56 87 114 136
+Next token is token ')' ()
+Shifting token ')' ()
+Entering state 154
+Stack now 0 10 2 14 21 34 56 87 114 136 154
+Reading a token
+Next token is token '{' ()
+Shifting token '{' ()
+Entering state 165
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165
+Reading a token
+Next token is token ID ("printf")
+Shifting token ID ("printf")
+Entering state 122
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122
+Reading a token
+Next token is token '(' ()
+Shifting token '(' ()
+Entering state 61
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61
+Reading a token
+Next token is token LIT_STR ("%d, %f
+")
+Shifting token LIT_STR ("%d, %f
+")
+Entering state 42
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 42
+Reducing stack by rule 52 (line 167):
+   $1 = token LIT_STR ("%d, %f
+")
+-> $$ = nterm expr ()
+Entering state 91
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 91
+Reading a token
+Next token is token ',' ()
+Reducing stack by rule 76 (line 197):
+   $1 = nterm expr ()
+-> $$ = nterm expr_comma_list ()
+Entering state 93
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 93
+Reducing stack by rule 75 (line 193):
+   $1 = nterm expr_comma_list ()
+-> $$ = nterm expr_comma_list_opt ()
+Entering state 92
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92
+Next token is token ',' ()
+Shifting token ',' ()
+Entering state 131
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92 131
+Reading a token
+Next token is token ID ("p1")
+Shifting token ID ("p1")
+Entering state 43
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92 131 43
+Reading a token
+Next token is token ',' ()
+Reducing stack by rule 53 (line 168):
+   $1 = token ID ("p1")
+-> $$ = nterm expr ()
+Entering state 149
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92 131 149
+Next token is token ',' ()
+Reducing stack by rule 77 (line 198):
+   $1 = nterm expr_comma_list_opt ()
+   $2 = token ',' ()
+   $3 = nterm expr ()
+-> $$ = nterm expr_comma_list ()
+Entering state 93
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 93
+Reducing stack by rule 75 (line 193):
+   $1 = nterm expr_comma_list ()
+-> $$ = nterm expr_comma_list_opt ()
+Entering state 92
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92
+Next token is token ',' ()
+Shifting token ',' ()
+Entering state 131
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92 131
+Reading a token
+Next token is token ID ("p2")
+Shifting token ID ("p2")
+Entering state 43
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92 131 43
+Reading a token
+Next token is token ')' ()
+Reducing stack by rule 53 (line 168):
+   $1 = token ID ("p2")
+-> $$ = nterm expr ()
+Entering state 149
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92 131 149
+Next token is token ')' ()
+Reducing stack by rule 77 (line 198):
+   $1 = nterm expr_comma_list_opt ()
+   $2 = token ',' ()
+   $3 = nterm expr ()
+-> $$ = nterm expr_comma_list ()
+Entering state 93
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 93
+Reducing stack by rule 75 (line 193):
+   $1 = nterm expr_comma_list ()
+-> $$ = nterm expr_comma_list_opt ()
+Entering state 92
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92
+Next token is token ')' ()
+Shifting token ')' ()
+Entering state 130
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 122 61 92 130
+Reducing stack by rule 54 (line 169):
+   $1 = token ID ("printf")
+   $2 = token '(' ()
+   $3 = nterm expr_comma_list_opt ()
+   $4 = token ')' ()
+-> $$ = nterm expr ()
+Entering state 128
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 128
+Reading a token
+Next token is token ';' ()
+Shifting token ';' ()
+Entering state 148
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 128 148
+Reducing stack by rule 46 (line 158):
+   $1 = nterm expr ()
+   $2 = token ';' ()
+-> $$ = nterm stmnt ()
+Entering state 127
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 127
+Reducing stack by rule 35 (line 144):
+   $1 = nterm stmnt ()
+-> $$ = nterm stmnt_list ()
+Entering state 126
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 126
+Reading a token
+Next token is token '}' ()
+Reducing stack by rule 34 (line 140):
+   $1 = nterm stmnt_list ()
+-> $$ = nterm stmnt_list_opt ()
+Entering state 172
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 172
+Next token is token '}' ()
+Shifting token '}' ()
+Entering state 177
+Stack now 0 10 2 14 21 34 56 87 114 136 154 165 172 177
+Reducing stack by rule 32 (line 135):
+   $1 = nterm class_comps_list ()
+   $2 = token VOID ()
+   $3 = token ID ("method")
+   $4 = token '(' ()
+   $5 = nterm param_comma_list_opt ()
+   $6 = token ')' ()
+   $7 = token '{' ()
+   $8 = nterm stmnt_list_opt ()
+   $9 = token '}' ()
+-> $$ = nterm class_comps_list ()
+Entering state 34
+Stack now 0 10 2 14 21 34
+Reading a token
+Next token is token '}' ()
+Reducing stack by rule 26 (line 126):
+   $1 = nterm class_comps_list ()
+-> $$ = nterm class_comps_list_opt ()
+Entering state 33
+Stack now 0 10 2 14 21 33
+Next token is token '}' ()
+Shifting token '}' ()
+Entering state 55
+Stack now 0 10 2 14 21 33 55
+Reducing stack by rule 9 (line 91):
+   $1 = token CLASS ()
+   $2 = token ID ("B")
+   $3 = token '{' ()
+   $4 = nterm class_comps_list_opt ()
+   $5 = token '}' ()
+-> $$ = nterm global_decl ()
+Entering state 17
+Stack now 0 10 17
+Reducing stack by rule 3 (line 82):
+   $1 = nterm global_decl_list ()
+   $2 = nterm global_decl ()
+-> $$ = nterm global_decl_list ()
+Entering state 10
+Stack now 0 10
+Reading a token
+Next token is token INT ()
+Shifting token INT ()
+Entering state 3
+Stack now 0 10 3
+Reducing stack by rule 10 (line 95):
+   $1 = token INT ()
+-> $$ = nterm type ()
+Entering state 12
+Stack now 0 10 12
+Reading a token
+Next token is token ID ("main")
+Shifting token ID ("main")
+Entering state 18
+Stack now 0 10 12 18
+Reading a token
+Next token is token '(' ()
+Shifting token '(' ()
+Entering state 24
+Stack now 0 10 12 18 24
+Reading a token
+Next token is token ')' ()
+Reducing stack by rule 17 (line 104):
+-> $$ = nterm param_comma_list_opt ()
+Entering state 48
+Stack now 0 10 12 18 24 48
+Next token is token ')' ()
+Shifting token ')' ()
+Entering state 81
+Stack now 0 10 12 18 24 48 81
+Reading a token
+Next token is token '{' ()
+Shifting token '{' ()
+Entering state 110
+Stack now 0 10 12 18 24 48 81 110
+Reading a token
+Next token is token RETURN ()
+Shifting token RETURN ()
+Entering state 121
+Stack now 0 10 12 18 24 48 81 110 121
+Reading a token
+Next token is token LIT_INT (0)
+Shifting token LIT_INT (0)
+Entering state 38
+Stack now 0 10 12 18 24 48 81 110 121 38
+Reducing stack by rule 48 (line 163):
+   $1 = token LIT_INT (0)
+-> $$ = nterm expr ()
+Entering state 143
+Stack now 0 10 12 18 24 48 81 110 121 143
+Reading a token
+Next token is token ';' ()
+Shifting token ';' ()
+Entering state 158
+Stack now 0 10 12 18 24 48 81 110 121 143 158
+Reducing stack by rule 45 (line 157):
+   $1 = token RETURN ()
+   $2 = nterm expr ()
+   $3 = token ';' ()
+-> $$ = nterm stmnt ()
+Entering state 127
+Stack now 0 10 12 18 24 48 81 110 127
+Reducing stack by rule 35 (line 144):
+   $1 = nterm stmnt ()
+-> $$ = nterm stmnt_list ()
+Entering state 126
+Stack now 0 10 12 18 24 48 81 110 126
+Reading a token
+Next token is token '}' ()
+Reducing stack by rule 34 (line 140):
+   $1 = nterm stmnt_list ()
+-> $$ = nterm stmnt_list_opt ()
+Entering state 133
+Stack now 0 10 12 18 24 48 81 110 133
+Next token is token '}' ()
+Shifting token '}' ()
+Entering state 151
+Stack now 0 10 12 18 24 48 81 110 133 151
+Reducing stack by rule 6 (line 88):
+   $1 = nterm type ()
+   $2 = token ID ("main")
+   $3 = token '(' ()
+   $4 = nterm param_comma_list_opt ()
+   $5 = token ')' ()
+   $6 = token '{' ()
+   $7 = nterm stmnt_list_opt ()
+   $8 = token '}' ()
+-> $$ = nterm global_decl ()
+Entering state 17
+Stack now 0 10 17
+Reducing stack by rule 3 (line 82):
+   $1 = nterm global_decl_list ()
+   $2 = nterm global_decl ()
+-> $$ = nterm global_decl_list ()
+Entering state 10
+Stack now 0 10
+Reading a token
+Now at end of input.
+Reducing stack by rule 1 (line 77):
+   $1 = nterm global_decl_list ()
+-> $$ = nterm program ()
+Entering state 9
+Stack now 0 9
+Now at end of input.
+Shifting token "end of file" ()
+Entering state 16
+Stack now 0 9 16
+Stack now 0 9 16
+Cleanup: popping token "end of file" ()
+Cleanup: popping nterm program ()
